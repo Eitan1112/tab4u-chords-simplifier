@@ -11,6 +11,7 @@
 
     const EASY_TONE_ID = 'eLink'
     const SONG_CONTENT_ID = 'songContentTPL'
+    const CONVERTED_SONG_CONTENT_ID = 'convertedsongContentTPL'
     // const IMAGE_URL = "https://www.tab4u.com/additions/chords_imgs/1_Eb.gif"
     // const IMAGE_EXTENSION = '.gif'
 
@@ -67,8 +68,10 @@
     }
 
     const convertDOMChords = () => {
-        const elements = document.getElementById(SONG_CONTENT_ID).getElementsByTagName('span')
-        console.log(`Elements:`, elements.length)
+        const songContainer = document.getElementById(SONG_CONTENT_ID)
+        const elements = songContainer.getElementsByTagName('span')
+        songContainer.parentElement.innerHTML += `<div id=${CONVERTED_SONG_CONTENT_ID}></div>`
+        songContainer.style.display = 'none'
         for (let element of elements) {
             const chord = element.innerHTML
             console.log(`Trying chord ${chord}`)
@@ -85,10 +88,18 @@
 
 
     browser.runtime.onMessage.addListener((message) => {
+        alert(`Yo ${message.command} ;`)
         if (message.command === 'simplify') {
-            convertDOMChords()
+            alert(document.getElementById(CONVERTED_SONG_CONTENT_ID))
+            if(document.getElementById(CONVERTED_SONG_CONTENT_ID)) {
+                document.getElementById(CONVERTED_SONG_CONTENT_ID).style.display = 'block'
+                document.getElementById(SONG_CONTENT_ID) = 'none'
+            } else {
+                convertDOMChords()
+            }
         } else if (message.command === 'reset') {
-            alert('Not supported yet')
+            document.getElementById(CONVERTED_SONG_CONTENT_ID).style.display = 'none'
+            document.getElementById(SONG_CONTENT_ID) = 'block'
         }
     })
 
