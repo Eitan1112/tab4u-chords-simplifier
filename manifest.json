@@ -1,0 +1,15 @@
+{
+
+    "manifest_version": 2,
+    "name": "Tab4U Chords Fixer",
+    "version": "1.0",
+  
+    "description": "Gives you the simplified chords for free.",
+    "content_scripts": [
+      {
+        "matches": ["*://*.tab4u.com/tabs/songs/*"],
+        "js": ["script.js"]
+      }
+    ]
+  
+  }
