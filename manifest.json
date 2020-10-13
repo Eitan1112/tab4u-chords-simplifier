@@ -5,11 +5,22 @@
     "version": "1.0",
   
     "description": "Gives you the simplified chords for free.",
+    "icons": {
+        "48": "chord.png"
+    },
+    
+    "permissions": [
+      "activeTab"
+    ],
+
     "content_scripts": [
       {
         "matches": ["*://*.tab4u.com/tabs/songs/*"],
         "js": ["script.js"]
       }
-    ]
+    ],
+    "browser_action": {
+        "default_popup": "popup/popup.html"
+    }
   
   }
