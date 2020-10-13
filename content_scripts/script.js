@@ -17,7 +17,7 @@
 
     // Guitar
     const TONE_CHANGE = Number(document.getElementById(EASY_TONE_ID).href.split('?')[1].replace('#song', '').replace('ton=', ''))
-    const KEYS = ['F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B', 'C', 'C#', 'D', 'D#']
+    const KEYS = ['F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab', 'A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', ]
     const DUPLICATES = {
         'Gb': 'F#',
         'G#': 'Ab',
