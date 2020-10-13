@@ -69,9 +69,10 @@
 
     const convertDOMChords = () => {
         const songContainer = document.getElementById(SONG_CONTENT_ID)
+        window.songContainerOriginalChords = songContainer.innerHTML
+
         const elements = songContainer.getElementsByTagName('span')
-        songContainer.parentElement.innerHTML += `<div id=${CONVERTED_SONG_CONTENT_ID}></div>`
-        songContainer.style.display = 'none'
+
         for (let element of elements) {
             const chord = element.innerHTML
             console.log(`Trying chord ${chord}`)
@@ -88,18 +89,10 @@
 
 
     browser.runtime.onMessage.addListener((message) => {
-        alert(`Yo ${message.command} ;`)
         if (message.command === 'simplify') {
-            alert(document.getElementById(CONVERTED_SONG_CONTENT_ID))
-            if(document.getElementById(CONVERTED_SONG_CONTENT_ID)) {
-                document.getElementById(CONVERTED_SONG_CONTENT_ID).style.display = 'block'
-                document.getElementById(SONG_CONTENT_ID) = 'none'
-            } else {
-                convertDOMChords()
-            }
+            convertDOMChords()
         } else if (message.command === 'reset') {
-            document.getElementById(CONVERTED_SONG_CONTENT_ID).style.display = 'none'
-            document.getElementById(SONG_CONTENT_ID) = 'block'
+            document.getElementById(SONG_CONTENT_ID).innerHTML = window.songContainerOriginalChords
         }
     })
 
