@@ -6,7 +6,7 @@
   
     "description": "Gives you the simplified chords for free.",
     "icons": {
-        "48": "chord.png"
+        "48": "icons/chord.png"
     },
     
     "permissions": [
