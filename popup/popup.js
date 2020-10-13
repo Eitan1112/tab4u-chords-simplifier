@@ -25,5 +25,5 @@ const listenForClicks = () => {
     })
 }
 
-browser.tabs.executeScript({ file: "/script.js" })
+browser.tabs.executeScript({ file: "/content_scripts/script.js" })
     .then(listenForClicks)

@@ -16,7 +16,7 @@
     "content_scripts": [
       {
         "matches": ["*://*.tab4u.com/tabs/songs/*"],
-        "js": ["script.js"]
+        "js": ["content_scripts/script.js"]
       }
     ],
     "browser_action": {
