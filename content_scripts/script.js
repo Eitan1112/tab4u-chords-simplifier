@@ -9,9 +9,9 @@
     }
     window.hasRun = true;
 
-    const EASY_TONE_ID = 'eLink'
+    const EASY_TONE_ID = 'eLinkZ'
     const SONG_CONTENT_ID = 'songContentTPL'
-    const CONVERTED_SONG_CONTENT_ID = 'convertedsongContentTPL'
+    // const CONVERTED_SONG_CONTENT_ID = 'convertedsongContentTPL'
     // const IMAGE_URL = "https://www.tab4u.com/additions/chords_imgs/1_Eb.gif"
     // const IMAGE_EXTENSION = '.gif'
 
